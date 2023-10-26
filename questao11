@@ -1,0 +1,16 @@
+def Rotina(L, j, count=0):
+    if j == 1:
+        return L, count
+
+    chamadas = 0
+    for i in range(j):
+        if L[i] > L[chamadas]:
+            chamadas = i
+
+    L[j-1], L[chamadas] = L[chamadas], L[j-1]
+    return Rotina(L, j - 1, count + 1)
+
+L = [3, 7, 4, 2, 6]
+L_final, total_chamadas = Rotina(L, len(L))
+print(f"Lista após chamadas: {L_final}")
+print(f"Total de chamadas: {total_chamadas}")
