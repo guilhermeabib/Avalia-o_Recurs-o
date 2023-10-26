@@ -1,0 +1,19 @@
+def T(x, limite):
+    if x > limite:
+        return []
+    
+    return [x] + T(x + 3, limite) + T(2 * x, limite)
+
+def main():
+    limite = max(6, 7, 19, 12)
+    conjunto_T = set(T(2, limite))
+    
+    numeros_para_verificar = [6, 7, 19, 12]
+    for num in numeros_para_verificar:
+        if num in conjunto_T:
+            print(f"{num} pertence a T")
+        else:
+            print(f"{num} não pertence a T")
+
+if __name__ == "__main__":
+    main()
