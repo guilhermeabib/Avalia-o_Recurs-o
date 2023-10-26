@@ -1,0 +1,26 @@
+# a)
+def sequence=iaA(n):
+    if n == 1:
+        return 1
+    return 3 * sequenciaA(n-1)
+
+# b)
+def sequenciaB(n):
+    if n == 1:
+        return 2
+    return sequenciaB(n-1) - 1/2**n
+
+# c)
+def sequenciaC(n, a=1, b=1):
+    if n == 1:
+        return a
+    if n == 2:
+        return b
+    return sequenciaC(n-1, a, b) + sequenciaC(n-2, a, b)
+
+# d) 
+def sequenciaD(n, p=1, q=1):
+    if n == 1:
+        return p
+    return sequenciaD(n-1, p, q) + ((-1)**n) * (n//2) * q
+
