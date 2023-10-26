@@ -1,0 +1,19 @@
+def S(x, limite):
+    if len(x + 'b') > limite:
+        return []
+    
+    return [x + 'b'] + S(x + 'b', limite)
+
+def main():
+    limite = max(len(s) for s in ['a', 'ab', 'aba', 'aaab', 'bbbbb'])
+    conjunto_S = set(['a', 'b'] + S('a', limite) + S('b', limite))
+    
+    cadeias_para_verificar = ['a', 'ab', 'aba', 'aaab', 'bbbbb']
+    for cadeia in cadeias_para_verificar:
+        if cadeia in conjunto_S:
+            print(f"'{cadeia}' pertence a S")
+        else:
+            print(f"'{cadeia}' não pertence a S")
+
+if __name__ == "__main__":
+    main()
