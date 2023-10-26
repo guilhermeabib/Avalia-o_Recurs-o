@@ -1,0 +1,19 @@
+def M(x, y, limite):
+    if x*y > limite:
+        return []
+    .
+    return [x*y] + M(x, x*y, limite) + M(x*y, y, limite)
+
+def main():
+    limite = max(6, 9, 16, 21, 26, 54, 72, 218)
+    conjuntoM = set([2, 3] + M(2, 3, limite) + M(3, 2, limite))
+    
+    numeros_para_verificar = [6, 9, 16, 21, 26, 54, 72, 218]
+    for num in numeros_para_verificar:
+        if num in conjuntoM:
+            print(f"{num} pertence a M")
+        else:
+            print(f"{num} não pertence a M")
+
+if __name__ == "__main__":
+    main()
