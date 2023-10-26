@@ -1,0 +1,19 @@
+def W(x, limite):
+    if len('a' + x + 'c') > limite:
+        return []
+
+    return ['a' + x + 'c'] + W('a' + x + 'c', limite)
+
+def main():
+    limite = max(len(s) for s in ['a(b)c', 'a(a(b)c)c', 'a(b)c', 'a(a(a(b)c)c)c', 'a(aac)c'])
+    conjunto_W = set(['a', 'b', 'c'] + W('a', limite) + W('b', limite) + W('c', limite))
+    
+    cadeias_para_verificar = ['a(b)c', 'a(a(b)c)c', 'a(b)c', 'a(a(a(b)c)c)c', 'a(aac)c']
+    for cadeia in cadeias_para_verificar:
+        if cadeia in conjunto_W:
+            print(f"'{cadeia}' pertence a W")
+        else:
+            print(f"'{cadeia}' não pertence a W")
+
+if __name__ == "__main__":
+    main()
